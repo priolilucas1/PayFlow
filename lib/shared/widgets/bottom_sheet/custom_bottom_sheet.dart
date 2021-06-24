@@ -63,6 +63,9 @@ class CustomBottomSheet extends StatelessWidget {
                       primaryOnPressed: primaryOnPressed,
                       secondaryLabel: secondaryLabel,
                       secondaryOnPressed: secondaryOnPressed,
+                    ),
+                    SizedBox(
+                      height: 2,
                     )
                   ],
                 ),
