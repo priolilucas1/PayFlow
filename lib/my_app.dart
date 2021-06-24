@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:payflow/modules/insert_boleto/insert_boleto_page.dart';
 
 import 'modules/login/login_page.dart';
 import 'shared/themes/app_colors.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           '/home': (context) => HomePage(),
           '/login': (context) => LoginPage(),
           '/barcode_scanner': (context) => BarcodeScannerPage(),
+          '/insert_boleto': (context) => InsertBoletoPage(),
         });
   }
 }
