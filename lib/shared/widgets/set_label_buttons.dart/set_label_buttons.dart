@@ -10,11 +10,13 @@ class SetLabelButtons extends StatelessWidget {
     required this.secondaryLabel,
     required this.secondaryOnPressed,
     this.enablePrimaryColor = false,
+    this.enableSecondaryColor = false,
   });
 
   final String primaryLabel;
   final String secondaryLabel;
   final bool enablePrimaryColor;
+  final bool enableSecondaryColor;
   final VoidCallback primaryOnPressed;
   final VoidCallback secondaryOnPressed;
 
@@ -22,27 +24,47 @@ class SetLabelButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.background,
-      height: 56,
-      child: Row(
+      height: 57,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          if (enablePrimaryColor) ...[
-            LabelButton.primary(
-              label: primaryLabel,
-              onPressed: primaryOnPressed,
-            ),
-          ] else ...[
-            LabelButton.heading(
-              label: primaryLabel,
-              onPressed: primaryOnPressed,
-            ),
-          ],
-          DividerVertical(
-            height: 56,
+          Divider(
+            thickness: 1,
+            height: 1,
+            color: AppColors.stroke,
           ),
-          LabelButton.heading(
-            label: secondaryLabel,
-            onPressed: secondaryOnPressed,
-          )
+          Container(
+            height: 56,
+            child: Row(
+              children: [
+                if (enablePrimaryColor) ...[
+                  LabelButton.primary(
+                    label: primaryLabel,
+                    onPressed: primaryOnPressed,
+                  ),
+                ] else ...[
+                  LabelButton.heading(
+                    label: primaryLabel,
+                    onPressed: primaryOnPressed,
+                  ),
+                ],
+                DividerVertical(
+                  height: 56,
+                ),
+                if (enableSecondaryColor) ...[
+                  LabelButton.primary(
+                    label: secondaryLabel,
+                    onPressed: secondaryOnPressed,
+                  )
+                ] else ...[
+                  LabelButton.heading(
+                    label: secondaryLabel,
+                    onPressed: secondaryOnPressed,
+                  )
+                ]
+              ],
+            ),
+          ),
         ],
       ),
     );
