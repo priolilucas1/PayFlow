@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:payflow/modules/insert_boleto/insert_boleto_page.dart';
+import 'package:payflow/shared/models/user.dart';
 
+import 'package:payflow/modules/insert_boleto/insert_boleto_page.dart';
 import 'modules/login/login_page.dart';
 import 'shared/themes/app_colors.dart';
 import 'modules/splash/splash_page.dart';
@@ -14,12 +15,15 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
       DeviceOrientation.portraitUp,
     ]);
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: AppColors.background),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'PayFlow',
+        title: 'Pay Flow',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primaryColor: AppColors.primary,
@@ -29,10 +33,16 @@ class MyApp extends StatelessWidget {
         initialRoute: '/splash',
         routes: {
           '/splash': (context) => SplashPage(),
-          '/home': (context) => HomePage(),
+          "/home": (context) => HomePage(
+                user: ModalRoute.of(context)!.settings.arguments as User,
+              ),
           '/login': (context) => LoginPage(),
           '/barcode_scanner': (context) => BarcodeScannerPage(),
-          '/insert_boleto': (context) => InsertBoletoPage(),
+          "/insert_boleto": (context) => InsertBoletoPage(
+                barcode: ModalRoute.of(context) != null
+                    ? ModalRoute.of(context)!.settings.arguments.toString()
+                    : null,
+              ),
         });
   }
 }
