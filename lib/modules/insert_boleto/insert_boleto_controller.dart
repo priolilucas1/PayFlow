@@ -41,7 +41,7 @@ class InsertBoletoController {
   Future<void> registerBoleto() async {
     final form = formKey.currentState;
     if (form!.validate()) {
-      return saveBoleto();
+      return await saveBoleto();
     }
   }
 }
