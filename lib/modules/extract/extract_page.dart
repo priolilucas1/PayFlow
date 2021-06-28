@@ -22,8 +22,13 @@ class _ExtractPageState extends State<ExtractPage> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Meus extratos", style: TextStyles.titleBoldHeading),
+                Text(
+                  '9 pagos',
+                  style: TextStyles.captionBody,
+                ),
               ],
             ),
           ),
@@ -31,6 +36,8 @@ class _ExtractPageState extends State<ExtractPage> {
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Divider(
               color: AppColors.stroke,
+              height: 1,
+              thickness: 1,
             ),
           ),
           Padding(
