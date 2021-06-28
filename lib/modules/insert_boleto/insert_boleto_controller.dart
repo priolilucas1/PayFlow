@@ -12,8 +12,15 @@ class InsertBoletoController {
       value?.isEmpty ?? true ? 'A data de vencimento não pode ser vazio' : null;
   String? validateValor(double value) =>
       value == 0 ? 'Insira um valor maior que R\$ 0,00' : null;
-  String? validateCodigo(String? value) =>
-      (value?.isEmpty) ?? true ? 'O código do boleto não pode ser vazio' : null;
+  String? validateCodigo(String? value) {
+    if (value!.isEmpty) {
+      return 'O código do boleto não pode ser vazio';
+    } else if (value.length < 47) {
+      return 'Insira um código de boleto válido';
+    } else {
+      return null;
+    }
+  }
 
   void onChange({
     String? name,
