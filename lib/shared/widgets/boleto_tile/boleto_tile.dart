@@ -91,48 +91,42 @@ class BoletoTile extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    width: 188,
-                    height: 55,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.grey[100],
-                        side: BorderSide(color: AppColors.stroke),
-                        elevation: 0,
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.grey[100],
+                      side: BorderSide(color: AppColors.stroke),
+                      elevation: 0,
+                      fixedSize: Size(188, 55),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 42.5,
+                        vertical: 19,
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 42.5,
-                          vertical: 19,
-                        ),
-                        child: Text(
-                          'Ainda não',
-                          style: TextStyles.buttonGray,
-                        ),
+                      child: Text(
+                        'Ainda não',
+                        style: TextStyles.buttonGray,
                       ),
                     ),
                   ),
-                  Container(
-                    width: 188,
-                    height: 55,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        onPrimary: Colors.white,
-                        elevation: 0,
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      onPrimary: Colors.white,
+                      elevation: 0,
+                      fixedSize: Size(188, 55),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 42.5,
+                        vertical: 19,
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 42.5,
-                          vertical: 19,
-                        ),
-                        child: Text(
-                          'Sim',
-                          style: TextStyle(fontSize: 15),
-                        ),
+                      child: Text(
+                        'Sim',
+                        style: TextStyle(fontSize: 15),
                       ),
                     ),
                   ),
@@ -141,10 +135,11 @@ class BoletoTile extends StatelessWidget {
               Divider(
                 thickness: 1,
               ),
-              ElevatedButton(
+              TextButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   primary: Colors.white,
+                  onPrimary: Colors.red,
                   elevation: 0,
                   fixedSize: Size(200, 60),
                 ),
