@@ -8,6 +8,7 @@ import 'barcode_scanner_status.dart';
 class BarcodeScannerController {
   final statusNotifier =
       ValueNotifier<BarcodeScannerStatus>(BarcodeScannerStatus());
+
   BarcodeScannerStatus get status => statusNotifier.value;
   set status(BarcodeScannerStatus status) => statusNotifier.value = status;
 

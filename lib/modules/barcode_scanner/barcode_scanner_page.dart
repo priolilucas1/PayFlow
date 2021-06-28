@@ -118,7 +118,10 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                         controller.scanWithCamera();
                       },
                       secondaryLabel: 'Digitar código',
-                      secondaryOnPressed: () {},
+                      secondaryOnPressed: () {
+                        Navigator.of(context)
+                            .pushReplacementNamed('/insert_boleto');
+                      },
                     ),
                   );
                 } else {

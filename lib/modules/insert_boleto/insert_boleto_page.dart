@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:payflow/modules/insert_boleto/insert_boleto_controller.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
 import 'package:payflow/shared/widgets/input_text/custom_input_text.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payflow/shared/widgets/set_label_buttons.dart/set_label_buttons.dart';
 
 class InsertBoletoPage extends StatefulWidget {
   final String? barcode;
-  const InsertBoletoPage({this.barcode});
+  const InsertBoletoPage({
+    Key? key,
+    this.barcode,
+  }) : super(key: key);
 
   @override
   _InsertBoletoPageState createState() => _InsertBoletoPageState();
@@ -19,11 +23,11 @@ class _InsertBoletoPageState extends State<InsertBoletoPage> {
   final controller = InsertBoletoController();
 
   final moneyInputTextController = MoneyMaskedTextController(
-    leftSymbol: 'R\$',
-    decimalSeparator: ',',
+    leftSymbol: "R\$",
+    initialValue: 0,
+    decimalSeparator: ",",
   );
-
-  final dueDateInputTextController = MaskedTextController(mask: '00/00/0000');
+  final dueDateInputTextController = MaskedTextController(mask: "00/00/0000");
   final barcodeInputTextController = TextEditingController();
 
   @override
@@ -115,9 +119,8 @@ class _InsertBoletoPageState extends State<InsertBoletoPage> {
           Navigator.pop(context);
         },
         secondaryLabel: 'Cadastrar',
-        secondaryOnPressed: () {
-          controller.registerBoleto();
-          Navigator.pop(context);
+        secondaryOnPressed: () async {
+          await controller.registerBoleto(context);
         },
         enableSecondaryColor: true,
       ),
