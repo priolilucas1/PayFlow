@@ -38,6 +38,16 @@ class TextStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.heading,
   );
+  static final trailingRegularModal = GoogleFonts.lexendDeca(
+    fontSize: 20,
+    fontWeight: FontWeight.w400,
+    color: AppColors.heading,
+  );
+  static final trailingBoldModal = GoogleFonts.lexendDeca(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: AppColors.heading,
+  );
   static final buttonPrimary = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w400,
@@ -112,5 +122,10 @@ class TextStyles {
     fontSize: 13,
     fontWeight: FontWeight.w600,
     color: AppColors.body,
+  );
+  static final deleteRegular = GoogleFonts.inter(
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    color: AppColors.delete,
   );
 }
