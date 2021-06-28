@@ -11,26 +11,52 @@ class BoletoTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedCard(
       direction: AnimatedCardDirection.right,
-      child: ListTile(
-        contentPadding: EdgeInsets.zero,
-        title: Text(
-          data.name!,
-          style: TextStyles.titleListTile,
+      child: GestureDetector(
+        onTap: () {
+          showBottomSheet(
+            context: context,
+            backgroundColor: Colors.transparent,
+            builder: (context) {
+              return SingleChildScrollView(
+                child: Container(
+                  color: Colors.white,
+                  width: double.maxFinite,
+                  height: 100,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Testando',
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          );
+        },
+        child: ListTile(
+          contentPadding: EdgeInsets.zero,
+          title: Text(
+            data.name!,
+            style: TextStyles.titleListTile,
+          ),
+          subtitle: Text(
+            "Vence em ${data.dueDate}",
+            style: TextStyles.captionBody,
+          ),
+          trailing: Text.rich(TextSpan(
+            text: "R\$ ",
+            style: TextStyles.trailingRegular,
+            children: [
+              TextSpan(
+                text: "${data.value!.toStringAsFixed(2)}",
+                style: TextStyles.trailingBold,
+              ),
+            ],
+          )),
         ),
-        subtitle: Text(
-          "Vence em ${data.dueDate}",
-          style: TextStyles.captionBody,
-        ),
-        trailing: Text.rich(TextSpan(
-          text: "R\$ ",
-          style: TextStyles.trailingRegular,
-          children: [
-            TextSpan(
-              text: "${data.value!.toStringAsFixed(2)}",
-              style: TextStyles.trailingBold,
-            ),
-          ],
-        )),
       ),
     );
   }
