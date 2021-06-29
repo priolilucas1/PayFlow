@@ -22,6 +22,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: AppColors.primary),
+    );
+
     return MaterialApp(
         title: 'Pay Flow',
         debugShowCheckedModeBanner: false,
